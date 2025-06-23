@@ -37,7 +37,7 @@ jobs:
           name: cypress-screenshots
           path: cypress/screenshots
 
-            - name: Comment PR with Cypress test result
+      - name: Comment PR with Cypress test result
         if: github.event_name == 'pull_request'
         uses: actions/github-script@v6
         env:
