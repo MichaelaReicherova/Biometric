@@ -50,11 +50,11 @@ jobs:
           script: |
             const status = process.env.JOB_STATUS === 'success' ? '✅ **Success**' : '❌ **Failed**';
             const body = `
-### 🧪 Cypress test result
-${status} in pull request [#${process.env.PR_NUMBER}](${process.env.PR_URL})
+            ### 🧪 Cypress test result
+            ${status} in pull request [#${process.env.PR_NUMBER}](${process.env.PR_URL})
 
-👉 [Click here for run details](${process.env.RUN_URL})
-`;
+            👉 [Click here for run details](${process.env.RUN_URL})
+            `;
             await github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
