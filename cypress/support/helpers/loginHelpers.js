@@ -21,9 +21,7 @@ const dsl = {
         userLoggedIn() {
             cy.url().should('include', 'Pages/Dashboard');
             loginPage.verifyUserLoggedIn();
-            cy
-                .intercept('POST', '/Pages/Account/KeepAlive').as('keepAlive')
-                .wait('@keepAlive').its('response.statusCode').should('eq', 200);
+            cy.request('POST', '/Pages/Account/KeepAlive').its('status').should('eq', 200);
 
             return dsl;
         },
